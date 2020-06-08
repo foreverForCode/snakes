@@ -60,7 +60,7 @@ SLTile >> printOn: aStream [
 		
 	position printOn: aStream .
 	
-	players do: [ :aPlayer | aPlayer printOn: aStream  ].
+	players do:  [ :aPlayer | aPlayer printOn: aStream  ].
 	
 	aStream << ']'.
 ]
