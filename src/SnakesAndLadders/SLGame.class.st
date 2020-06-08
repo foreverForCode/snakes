@@ -8,6 +8,15 @@ Class {
 	#category : #SnakesAndLadders
 }
 
+{ #category : #adding }
+SLGame >> addPlayer: aPlayer [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	
+	(tiles at: 1) addPlayer: aPlayer .
+]
+
 { #category : #printing }
 SLGame >> printOn: aStream [
 	"comment stating purpose of instance-side message"

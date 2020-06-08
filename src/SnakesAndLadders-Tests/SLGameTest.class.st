@@ -8,6 +8,20 @@ Class {
 }
 
 { #category : #test }
+SLGameTest >> testAddPlayer [
+
+	|game jill|
+	
+	game := SLGame new tileNumber: 12.
+	
+	jill := SLPlayer new name: 'jill'.
+	
+	game addPlayer: jill.
+	
+	self assert: ((game tileAt: 1) players includes: jill).
+]
+
+{ #category : #test }
 SLGameTest >> testPrintOn [
 
 	| game |
