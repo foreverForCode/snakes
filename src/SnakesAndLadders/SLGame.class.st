@@ -8,12 +8,28 @@ Class {
 	#category : #SnakesAndLadders
 }
 
+{ #category : #printing }
+SLGame >> printOn: aStream [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	tiles do: [ :aTile | aTile printOn: aStream ].
+]
+
 { #category : #accessing }
 SLGame >> tileNumber [
-	^ tiles
+	^ tileNumber 
 ]
 
 { #category : #accessing }
 SLGame >> tileNumber: anObject [
-	tiles := anObject
+	
+	| tile |
+	
+	tiles := OrderedCollection new.
+	
+	1 to: anObject do: [ :each | tile = SLTile new position: each. tiles add: tile ].
+	
+	tileNumber := anObject . 
+	
 ]
