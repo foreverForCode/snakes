@@ -18,7 +18,7 @@ SLGameTest >> testAddPlayer [
 	
 	game addPlayer: jill.
 	
-	self assert: ((game tileAt: 1) players includes: jill).
+	self assert: ((game tileAt: 1) includesPlayer:  jill).
 ]
 
 { #category : #test }
@@ -31,6 +31,24 @@ SLGameTest >> testPrintOn [
 	self 
 	
 		assert: game printString equals: '[1][2]'. 
+]
+
+{ #category : #tests }
+SLGameTest >> testPrintingSimpleGame [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	|game jill jack|
+	
+	game := SLGame new tileNumber: 2.
+	
+	jack := SLPlayer new name: 'jack'.
+	
+	jill := SLPlayer new name: 'jill'.
+	
+	game addPlayer: jill.
+	
+	game addPlayer: jack.
 ]
 
 { #category : #test }

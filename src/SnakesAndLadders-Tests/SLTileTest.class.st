@@ -8,6 +8,24 @@ Class {
 }
 
 { #category : #test }
+SLTileTest >> testAddPlayer [
+
+	|tile player|
+	
+	tile := SLTile new.
+	
+	tile addPlayer: 'jill'.
+	
+	player := SLPlayer new name: 'jill'.
+	
+	Transcript show: tile; show: player.
+	
+	self assert: (tile includesPlayer: player ).
+	
+	
+]
+
+{ #category : #test }
 SLTileTest >> testPosition [
 
 	|tile|
@@ -24,5 +42,7 @@ SLTileTest >> testPrintOn [
 	
 	tile := SLTile new position: 6.
 	
-	self assert: tile printString equals: '[6]'.
+	tile addPlayer: 'jill'.
+	
+	self assert: tile printString equals: '[6<#jill>]'.
 ]
