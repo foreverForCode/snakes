@@ -15,9 +15,11 @@ SLTileTest >> testAddPlayer [
 	tile := SLTile new.
 	
 	tile position: 1.
-	tile addPlayer: 'jill'.
+	
 	
 	player := SLPlayer new name: 'jill'.
+	
+	tile addPlayer: player .
 	
 	self assert: (tile includesPlayer: player ).
 	
@@ -31,7 +33,7 @@ SLTileTest >> testIncludesPlayer [
 	
 	player := SLPlayer new name: 'jill'.
 	
-	tile := SLTile new addPlayer: 'jill'.
+	tile := SLTile new addPlayer: player .
 	
 	self assert: ((tile players) includes: player ).
 ]
@@ -49,11 +51,13 @@ SLTileTest >> testPosition [
 { #category : #test }
 SLTileTest >> testPrintOn [
 
-	| tile |
+	| tile aPlayer |
 	
 	tile := SLTile new position: 6.
 	
-	tile addPlayer: 'jill'.
+	aPlayer := SLPlayer new name: 'jill'.
+	
+	tile addPlayer: aPlayer .
 	
 	self assert: tile printString equals: '[6<''jill''>]'.
 ]

@@ -12,12 +12,8 @@ Class {
 SLTile >> addPlayer: aPlayer [
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
-	
-	|player|
-	
-	player := SLPlayer new name: aPlayer .
-	
-	players add: player .
+		
+	players add: aPlayer  .
 ]
 
 { #category : #testing }
@@ -33,7 +29,7 @@ SLTile >> initialize [
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
 			
-	players := OrderedCollection  new.
+	players := OrderedCollection new.
 ]
 
 { #category : #accessing }
@@ -60,7 +56,7 @@ SLTile >> printOn: aStream [
 		
 	position printOn: aStream .
 	
-	players do:  [ :aPlayer | aPlayer printOn: aStream  ].
+	players do:  [ :aPlayer | aPlayer printOn: aStream   ].
 	
 	aStream << ']'.
 ]

@@ -12,7 +12,7 @@ SLPlayerTest >> testPrintOn [
 
 	|player|
 	
-	player := SLPlayer new name: #jill.
+	player := SLPlayer new name: 'jill'.
 	
-	self assert: player printString equals: '<#jill>'.
+	self assert: player printString equals: '<''jill''>'.
 ]
