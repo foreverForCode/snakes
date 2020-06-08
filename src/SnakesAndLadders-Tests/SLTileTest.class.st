@@ -8,6 +8,16 @@ Class {
 }
 
 { #category : #test }
+SLTileTest >> testPosition [
+
+	|tile|
+	
+	tile := SLTile new position: 12.
+	
+	self assert: tile position equals: 12.
+]
+
+{ #category : #test }
 SLTileTest >> testPrintOn [
 
 	| tile |

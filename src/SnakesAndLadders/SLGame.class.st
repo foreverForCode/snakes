@@ -17,6 +17,14 @@ SLGame >> printOn: aStream [
 ]
 
 { #category : #accessing }
+SLGame >> tileAt: index [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	^ tiles at: index.
+]
+
+{ #category : #accessing }
 SLGame >> tileNumber [
 	^ tileNumber 
 ]
@@ -24,11 +32,9 @@ SLGame >> tileNumber [
 { #category : #accessing }
 SLGame >> tileNumber: anObject [
 	
-	| tile |
-	
 	tiles := OrderedCollection new.
 	
-	1 to: anObject do: [ :each | tile = SLTile new position: each. tiles add: tile ].
+	1 to: anObject do: [ :each | tiles add: (SLTile new position: each)].
 	
 	tileNumber := anObject . 
 	
