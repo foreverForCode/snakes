@@ -8,6 +8,20 @@ Class {
 }
 
 { #category : #test }
+SLPlayerTest >> testPosition [
+
+	|game jill|
+	
+	game := SLGame new tileNumber: 12.
+	
+	jill := SLPlayer new name: 'jill'.
+	
+	game addPlayer: jill.
+	
+	self assert: jill position equals: 1.
+]
+
+{ #category : #test }
 SLPlayerTest >> testPrintOn [
 
 	|player|

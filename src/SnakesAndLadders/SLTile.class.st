@@ -1,8 +1,7 @@
 Class {
 	#name : #SLTile,
-	#superclass : #Object,
+	#superclass : #SLAbstractTile,
 	#instVars : [
-		'position',
 		'players'
 	],
 	#category : #SnakesAndLadders
@@ -37,26 +36,34 @@ SLTile >> players [
 	^ players
 ]
 
-{ #category : #accessing }
-SLTile >> position [
-	^ position
-]
-
-{ #category : #accessing }
-SLTile >> position: anObject [
-	position := anObject
+{ #category : #printing }
+SLTile >> printInsideOn: aStream [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	super printInsideOn: aStream .
+	
+	players do: [ :aPlayer | aPlayer printOn: aStream ].
 ]
 
 { #category : #printing }
-SLTile >> printOn: aStream [
+SLTile >> printOn: aStream [ 
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
 			
 	aStream << '['.
 		
-	position printOn: aStream .
-	
-	players do:  [ :aPlayer | aPlayer printOn: aStream   ].
+	self printInsideOn: aStream .
 	
 	aStream << ']'.
+]
+
+{ #category : #removing }
+SLTile >> removePlayer: aPlayer [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	(players includes: aPlayer)
+	
+	ifTrue: [ players  remove: aPlayer ].
 ]

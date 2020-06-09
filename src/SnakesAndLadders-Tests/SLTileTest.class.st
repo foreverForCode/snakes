@@ -61,3 +61,21 @@ SLTileTest >> testPrintOn [
 	
 	self assert: tile printString equals: '[6<''jill''>]'.
 ]
+
+{ #category : #test }
+SLTileTest >> testRemovePlayer [
+
+	| tile jill|
+	
+	tile := SLTile new position: 1.
+	
+	jill := SLPlayer new name: 'jill'.
+	
+	tile addPlayer: jill.
+	
+	self assert: (tile includesPlayer: jill).
+	
+	tile removePlayer: jill.
+	
+	self deny: (tile includesPlayer: jill).
+]
