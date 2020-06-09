@@ -49,6 +49,10 @@ SLGameTest >> testPrintingSimpleGame [
 	game addPlayer: jill.
 	
 	game addPlayer: jack.
+	
+	self assert: ((game tileAt: 1) includesPlayer: jill).
+	
+	self assert: ((game tileAt: 1) includesPlayer: jack).
 ]
 
 { #category : #test }
